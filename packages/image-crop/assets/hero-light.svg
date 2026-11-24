@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="260" viewBox="0 0 840 260" role="img" aria-labelledby="title desc">
+<title id="title">@utilitly/image-crop</title>
+<desc id="desc">A crop frame snaps to 1:1, then 4:3, then 16:9 over a photo, dimming everything outside it.</desc>
+<style>
+text { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #1c1c30; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
+.muted { fill: #6b6b86; }
+.faint { fill: #a6a7bf; }
+.accent { fill: #4f46e5; }
+.anim { transform-box: fill-box; transform-origin: center; }
+.t0, .t1 { opacity: 0; }
+.t0 { animation: t0 9s steps(1, end) infinite; }
+.t1 { animation: t1 9s steps(1, end) infinite; }
+.t2 { animation: t2 9s steps(1, end) infinite; }
+@keyframes t0 { 0% { opacity: 1; } 33.333% { opacity: 0; } }
+@keyframes t1 { 0% { opacity: 0; } 33.333% { opacity: 1; } 66.666% { opacity: 0; } }
+@keyframes t2 { 0% { opacity: 0; } 66.666% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="0.5" y="0.5" width="839" height="259" rx="16" fill="#f6f7fb" stroke="#dcdcea"/>
+<rect x="150" y="30" width="300" height="180" rx="0" fill="#e6e5fc" stroke="#dcdcea"/><path d="M 153 209 L 240 111 L 300 156 L 348 124 L 447 209 Z" fill="#4f46e5" opacity="0.55"/><circle cx="384" cy="75" r="14" fill="#d97706" opacity="0.8"/>
+<g class="t0"><path d="M 150 30 h 300 v 180 h -300 Z M 210 30 h 180 v 180 h -180 Z" fill="#f6f7fb" fill-rule="evenodd" opacity="0.72"/>
+<rect x="210" y="30" width="180" height="180" fill="none" stroke="#4f46e5" stroke-width="2"/>
+<path d="M 224 30 H 210 V 44 M 376 30 H 390 V 44 M 224 210 H 210 V 196 M 376 210 H 390 V 196" fill="none" stroke="#4f46e5" stroke-width="4" stroke-linecap="square"/>
+<text x="500" y="126" font-size="34" font-weight="700" class="mono accent">1:1</text><text x="500" y="154" font-size="13" class="muted">square, for profile pictures</text></g>
+<g class="t1"><path d="M 150 30 h 300 v 180 h -300 Z M 180 30 h 240 v 180 h -240 Z" fill="#f6f7fb" fill-rule="evenodd" opacity="0.72"/>
+<rect x="180" y="30" width="240" height="180" fill="none" stroke="#4f46e5" stroke-width="2"/>
+<path d="M 194 30 H 180 V 44 M 406 30 H 420 V 44 M 194 210 H 180 V 196 M 406 210 H 420 V 196" fill="none" stroke="#4f46e5" stroke-width="4" stroke-linecap="square"/>
+<text x="500" y="126" font-size="34" font-weight="700" class="mono accent">4:3</text><text x="500" y="154" font-size="13" class="muted">the classic photo shape</text></g>
+<g class="t2"><path d="M 150 30 h 300 v 180 h -300 Z M 150 35 h 300 v 169 h -300 Z" fill="#f6f7fb" fill-rule="evenodd" opacity="0.72"/>
+<rect x="150" y="35" width="300" height="169" fill="none" stroke="#4f46e5" stroke-width="2"/>
+<path d="M 164 35 H 150 V 49 M 436 35 H 450 V 49 M 164 204 H 150 V 190 M 436 204 H 450 V 190" fill="none" stroke="#4f46e5" stroke-width="4" stroke-linecap="square"/>
+<text x="500" y="126" font-size="34" font-weight="700" class="mono accent">16:9</text><text x="500" y="154" font-size="13" class="muted">widescreen, for thumbnails</text></g>
+<text x="500" y="84" font-size="13" class="muted">Crop to</text>
+<text x="36" y="238" font-size="14" class="mono">await cropImage(photo, { aspect: '16:9' })</text><text x="804" y="238" font-size="12.5" text-anchor="end" class="muted">or an exact x, y, width and height</text>
+</svg>

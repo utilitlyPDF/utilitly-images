@@ -1,0 +1,64 @@
+{
+  "name": "@utilitly/image-crop",
+  "version": "0.1.0",
+  "description": "Crop images in JavaScript to a rectangle or an aspect ratio like 16:9, in Node.js or the browser. Nothing is uploaded.",
+  "homepage": "https://utilitly.com/developers",
+  "keywords": [
+    "image",
+    "crop",
+    "crop-image",
+    "aspect-ratio",
+    "jpeg",
+    "png",
+    "webp",
+    "browser",
+    "nodejs",
+    "typescript"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitlyPDF/utilitly-images.git",
+    "directory": "packages/image-crop"
+  },
+  "type": "module",
+  "sideEffects": [
+    "./dist/node.mjs",
+    "./dist/node.cjs"
+  ],
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/node.mjs",
+        "require": "./dist/node.cjs"
+      },
+      "default": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/node.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsdown -c ../../tsdown.config.ts",
+    "typecheck": "tsc && tsc -p tsconfig.node.json",
+    "lint:package": "publint --strict && attw --pack ."
+  },
+  "dependencies": {
+    "@jsquash/jpeg": "1.6.0",
+    "@jsquash/png": "3.1.1",
+    "@jsquash/webp": "1.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

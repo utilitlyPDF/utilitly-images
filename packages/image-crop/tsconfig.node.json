@@ -1,0 +1,8 @@
+{
+  // The Node entry, the one file in the package that may use Node.js APIs.
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["src/node.ts"]
+}

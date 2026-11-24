@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Utilitly image engines · playground</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <h1>Utilitly image engines</h1>
+      <p>
+        Try each package on your own images. Everything runs in this tab: open DevTools, go to
+        <b>Network</b>, and you'll only see this page's own scripts and codecs loading from localhost.
+        Your images are never sent anywhere.
+      </p>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Tools">
+      <button role="tab" data-tab="crop" aria-selected="true">Crop</button>
+    </nav>
+
+    <main>
+      <form class="tool" data-tool="crop" role="tabpanel">
+        <h2><code>@utilitly/image-crop</code></h2>
+        <label>Image (JPEG, PNG or WebP) <input name="file" type="file" accept="image/jpeg,image/png,image/webp" required /></label>
+        <fieldset>
+          <legend>Crop to</legend>
+          <label class="inline"><input type="radio" name="mode" value="aspect" checked /> The middle, at a shape</label>
+          <label class="inline"><input type="radio" name="mode" value="area" /> A rectangle, in pixels of the upright photo</label>
+        </fieldset>
+        <div class="row">
+          <label>Shape
+            <select name="aspect">
+              <option value="1:1">1:1</option>
+              <option value="4:3">4:3</option>
+              <option value="16:9" selected>16:9</option>
+            </select>
+          </label>
+          <label>x <input name="x" type="number" min="0" value="0" /></label>
+          <label>y <input name="y" type="number" min="0" value="0" /></label>
+          <label>Width <input name="width" type="number" min="1" value="200" /></label>
+          <label>Height <input name="height" type="number" min="1" value="200" /></label>
+        </div>
+        <div class="row">
+          <label>Format
+            <select name="format">
+              <option value="">Same as the input</option>
+              <option value="jpeg">JPEG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WebP</option>
+            </select>
+          </label>
+          <label>Quality (JPEG and WebP) <input name="quality" type="number" min="40" max="100" value="90" /></label>
+        </div>
+        <button type="submit">Crop</button>
+      </form>
+
+      <section class="output" aria-live="polite">
+        <p class="status">Pick a tool, choose an image, and run it.</p>
+        <div class="results"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
